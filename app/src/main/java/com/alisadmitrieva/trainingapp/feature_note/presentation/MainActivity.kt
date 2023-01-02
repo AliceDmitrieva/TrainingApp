@@ -5,11 +5,21 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.alisadmitrieva.trainingapp.BottomNavItem
+import com.alisadmitrieva.trainingapp.R
 import com.alisadmitrieva.trainingapp.feature_note.presentation.add_edit_note.components.AddEditNoteScreen
 import com.alisadmitrieva.trainingapp.feature_note.presentation.notes.components.NotesScreen
 import com.alisadmitrieva.trainingapp.feature_note.presentation.util.Screen
@@ -61,4 +71,5 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
 }
