@@ -3,12 +3,15 @@ package com.alisadmitrieva.trainingapp.feature_note.presentation
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -51,27 +54,29 @@ class MainActivity2 : AppCompatActivity() {
     }
 
     @Composable
-    fun MainScreenView(){
-        val navController = rememberNavController()
-        Scaffold(
-            bottomBar = { BtmNavigation(navController = navController) }
-        ) {
-
-            NavigationGraph(navController = navController)
+    fun Navigation(navController: NavHostController) {
+        NavHost(navController, startDestination = BottomNavItem.Trainings) {
+            composable(BottomNavItem.Trainings.screen_route) {
+                BottomNavItem.Trainings()
+            }
         }
     }
 
     @Composable
-    fun NavigationGraph(navController: NavHostController) {
-        NavHost(navController, startDestination = BottomNavItem.Trainings.screen_route) {
-            composable(BottomNavItem.Trainings.screen_route) {
-                BottomNavItem.Trainings()
-            }
-            composable(BottomNavItem.MyNotes.screen_route) {
-                BottomNavItem.MyNotes()
-            }
-        }
+    fun MainScreenView() {
+        val navController = rememberNavController()
+
+        Scaffold(
+            bottomBar = { BtmNavigation(navController = navController) },
+            content = { padding ->
+                Box(modifier = Modifier.padding(padding)) {
+                    Navigation(navController = navController)
+                }
+            },
+            backgroundColor = colorResource(com.google.android.material.R.color.design_dark_default_color_primary_dark)
+        )
     }
+
 
     @Composable
     fun BtmNavigation(navController: NavController) {
@@ -85,26 +90,34 @@ class MainActivity2 : AppCompatActivity() {
         ) {
             val navBackStackEntry by navController.currentBackStackEntryAsState()
             val currentRoute = navBackStackEntry?.destination?.route
+
             items.forEach { item ->
                 BottomNavigationItem(
                     icon = { Icon(painterResource(id = item.icon), contentDescription = item.title) },
-                    label = { Text(
-                        text = item.title,
-                        fontSize = 9.sp
-                    )},
+                    label = {
+                        Text(
+                            text = item.title,
+                            fontSize = 9.sp
+                        )
+                    },
                     selectedContentColor = Color.Black,
                     unselectedContentColor = Color.Black.copy(0.4f),
                     alwaysShowLabel = true,
                     selected = currentRoute == item.screen_route,
                     onClick = {
                         navController.navigate(item.screen_route) {
-
-                            navController.graph.startDestinationRoute?.let { screen_route ->
-                                popUpTo(screen_route) {
+                            // Pop up to the start destination of the graph to
+                            // avoid building up a large stack of destinations
+                            // on the back stack as users select items
+                            navController.graph.startDestinationRoute?.let { route ->
+                                popUpTo(route) {
                                     saveState = true
                                 }
                             }
+                            // Avoid multiple copies of the same destination when
+                            // reselecting the same item
                             launchSingleTop = true
+                            // Restore state when reselecting a previously selected item
                             restoreState = true
                         }
                     }
