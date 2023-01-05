@@ -26,7 +26,6 @@ import com.alisadmitrieva.trainingapp.feature_note.presentation.util.Screen
 import com.alisadmitrieva.trainingapp.ui.theme.CleanArchitectureNoteAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

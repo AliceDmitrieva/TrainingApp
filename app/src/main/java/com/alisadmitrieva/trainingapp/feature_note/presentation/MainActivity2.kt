@@ -1,8 +1,8 @@
 package com.alisadmitrieva.trainingapp.feature_note.presentation
 
 import android.os.Bundle
+import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigation
@@ -11,6 +11,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
@@ -22,61 +23,47 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.alisadmitrieva.trainingapp.BottomNavItem
 import com.alisadmitrieva.trainingapp.R
-import com.alisadmitrieva.trainingapp.databinding.ActivityMain2Binding
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
-class MainActivity2 : AppCompatActivity() {
-
-    private lateinit var binding: ActivityMain2Binding
+@AndroidEntryPoint
+class MainActivity2 : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = ActivityMain2Binding.inflate(layoutInflater)
         setContent {
             MainScreenView()
         }
-        val navView: BottomNavigationView = binding.navView
-
-        val navController = findNavController(R.id.nav_host_fragment_activity_main2)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications))
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
     }
 
-    @Composable
-    fun Navigation(navController: NavHostController) {
-        NavHost(navController, startDestination = BottomNavItem.Trainings) {
-            composable(BottomNavItem.Trainings.screen_route) {
-                BottomNavItem.Trainings()
-            }
-        }
-    }
 
     @Composable
     fun MainScreenView() {
         val navController = rememberNavController()
 
         Scaffold(
-            bottomBar = { BtmNavigation(navController = navController) },
+            bottomBar = { BtmNavigation(navController) },
             content = { padding ->
                 Box(modifier = Modifier.padding(padding)) {
                     Navigation(navController = navController)
                 }
             },
-            backgroundColor = colorResource(com.google.android.material.R.color.design_dark_default_color_primary_dark)
+            backgroundColor = colorResource(R.color.black)
         )
     }
 
+    @Composable
+    fun Navigation(navController: NavHostController) {
+        NavHost(navController, startDestination = BottomNavItem.Trainings.screen_route) {
+            composable(BottomNavItem.Trainings.screen_route) {
+                TrainingsScreen()
+            }
+            composable(BottomNavItem.MyNotes.screen_route) {
+                NotesScreen()
+            }
+        }
+    }
 
     @Composable
     fun BtmNavigation(navController: NavController) {
