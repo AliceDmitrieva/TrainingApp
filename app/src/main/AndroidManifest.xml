@@ -32,11 +32,6 @@
                 android:value=""
                 />
         </activity>
-        <activity
-            android:name=".feature_note.presentation.MainActivity"
-            android:exported="true"
-            >
-        </activity>
     </application>
 
 </manifest>
