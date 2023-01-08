@@ -1,4 +1,4 @@
-package com.alisadmitrieva.trainingapp.feature_note.presentation.add_edit_note.components
+package com.alisadmitrieva.trainingapp.feature_note.presentation.add_training.components
 
 import androidx.compose.animation.Animatable
 import androidx.compose.animation.core.tween
@@ -37,8 +37,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.alisadmitrieva.trainingapp.feature_note.domain.model.Note
-import com.alisadmitrieva.trainingapp.feature_note.presentation.add_edit_note.AddEditNoteEvent
-import com.alisadmitrieva.trainingapp.feature_note.presentation.add_edit_note.AddEditNoteViewModel
+import com.alisadmitrieva.trainingapp.feature_note.presentation.add_training.AddEditNoteEvent
+import com.alisadmitrieva.trainingapp.feature_note.presentation.add_training.AddEditNoteViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 

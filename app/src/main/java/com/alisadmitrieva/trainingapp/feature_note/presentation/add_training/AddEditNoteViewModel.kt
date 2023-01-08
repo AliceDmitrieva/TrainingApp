@@ -1,4 +1,4 @@
-package com.alisadmitrieva.trainingapp.feature_note.presentation.add_edit_note
+package com.alisadmitrieva.trainingapp.feature_note.presentation.add_training
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf

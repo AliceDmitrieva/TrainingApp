@@ -21,7 +21,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.alisadmitrieva.trainingapp.R
-import com.alisadmitrieva.trainingapp.feature_note.presentation.add_edit_note.components.AddEditNoteScreen
+import com.alisadmitrieva.trainingapp.feature_note.presentation.add_training.components.AddEditNoteScreen
 import com.alisadmitrieva.trainingapp.feature_note.presentation.notes.components.NotesScreen
 import com.alisadmitrieva.trainingapp.feature_note.presentation.util.Screen
 import com.alisadmitrieva.trainingapp.ui.theme.CleanArchitectureNoteAppTheme
