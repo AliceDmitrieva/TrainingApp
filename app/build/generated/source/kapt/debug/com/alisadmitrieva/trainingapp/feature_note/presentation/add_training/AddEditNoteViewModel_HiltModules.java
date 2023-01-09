@@ -29,7 +29,7 @@ public final class AddEditNoteViewModel_HiltModules {
 
     @Binds
     @IntoMap
-    @StringKey("com.alisadmitrieva.trainingapp.feature_note.presentation.add_edit_note.AddEditNoteViewModel")
+    @StringKey("com.alisadmitrieva.trainingapp.feature_note.presentation.add_training.AddEditNoteViewModel")
     @HiltViewModelMap
     public abstract ViewModel binds(AddEditNoteViewModel vm);
   }
@@ -44,7 +44,7 @@ public final class AddEditNoteViewModel_HiltModules {
     @IntoSet
     @HiltViewModelMap.KeySet
     public static String provide() {
-      return "com.alisadmitrieva.trainingapp.feature_note.presentation.add_edit_note.AddEditNoteViewModel";
+      return "com.alisadmitrieva.trainingapp.feature_note.presentation.add_training.AddEditNoteViewModel";
     }
   }
 }

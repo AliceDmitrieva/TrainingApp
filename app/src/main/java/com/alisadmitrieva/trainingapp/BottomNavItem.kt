@@ -1,17 +1,20 @@
 package com.alisadmitrieva.trainingapp
 
-sealed class BottomNavItem(var title:String, var icon:Int, var screen_route:String) {
+sealed class BottomNavItem(
+    var title: String,
+    var icon: Int,
+    var screen_route: String,
+) {
 
     object Trainings : BottomNavItem(
         "Trainings",
-        R.drawable.ic_launcher_foreground,
-        "trainings",
+        R.drawable.ic_sport,
+        "my_trainings",
     )
 
-    object MyNotes: BottomNavItem(
-        "My Notes",
-        R.drawable.ic_launcher_foreground,
-        "my_notes",
+    object Nutrition : BottomNavItem(
+        "Nutrition",
+        R.drawable.ic_food,
+        "my_nutrition",
     )
 }
-

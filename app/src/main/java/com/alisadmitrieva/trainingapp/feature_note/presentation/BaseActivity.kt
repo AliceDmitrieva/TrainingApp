@@ -28,7 +28,7 @@ import com.alisadmitrieva.trainingapp.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity2 : ComponentActivity() {
+class BaseActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +59,7 @@ class MainActivity2 : ComponentActivity() {
             composable(BottomNavItem.Trainings.screen_route) {
                 TrainingsScreen()
             }
-            composable(BottomNavItem.MyNotes.screen_route) {
+            composable(BottomNavItem.Nutrition.screen_route) {
                 NotesScreen()
             }
         }
@@ -69,7 +69,7 @@ class MainActivity2 : ComponentActivity() {
     fun BtmNavigation(navController: NavController) {
         val items = listOf(
             BottomNavItem.Trainings,
-            BottomNavItem.MyNotes,
+            BottomNavItem.Nutrition,
         )
         BottomNavigation(
             backgroundColor = colorResource(id = R.color.teal_200),
