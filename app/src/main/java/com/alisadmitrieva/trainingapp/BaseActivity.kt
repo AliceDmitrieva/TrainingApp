@@ -1,4 +1,4 @@
-package com.alisadmitrieva.trainingapp.feature_note.presentation
+package com.alisadmitrieva.trainingapp
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -23,8 +23,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.alisadmitrieva.trainingapp.BottomNavItem
-import com.alisadmitrieva.trainingapp.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -59,8 +57,14 @@ class BaseActivity : ComponentActivity() {
             composable(BottomNavItem.Trainings.screen_route) {
                 TrainingsScreen()
             }
+            composable(BottomNavItem.Trainings.screen_route) {
+                CalendarScreen()
+            }
+            composable(BottomNavItem.Trainings.screen_route) {
+                NutritionScreen()
+            }
             composable(BottomNavItem.Nutrition.screen_route) {
-                NotesScreen()
+                ProfileScreen()
             }
         }
     }
@@ -69,7 +73,9 @@ class BaseActivity : ComponentActivity() {
     fun BtmNavigation(navController: NavController) {
         val items = listOf(
             BottomNavItem.Trainings,
+            BottomNavItem.Calendar,
             BottomNavItem.Nutrition,
+            BottomNavItem.Profile,
         )
         BottomNavigation(
             backgroundColor = colorResource(id = R.color.teal_200),

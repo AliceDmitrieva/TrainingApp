@@ -1,4 +1,4 @@
-package com.alisadmitrieva.trainingapp.feature_note.presentation
+package com.alisadmitrieva.trainingapp
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -13,18 +13,17 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
-import com.alisadmitrieva.trainingapp.R
 
 @Composable
 fun TrainingsScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.teal_200))
+            .background(colorResource(id = R.color.peach))
             .wrapContentSize(Alignment.Center)
     ) {
         Text(
-            text = "My Trainings Screen",
+            text = "Trainings Screen",
             fontWeight = FontWeight.Bold,
             color = Color.White,
             modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -35,15 +34,53 @@ fun TrainingsScreen() {
 }
 
 @Composable
-fun NotesScreen() {
+fun CalendarScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.teal_700))
+            .background(colorResource(id = R.color.pink))
+            .wrapContentSize(Alignment.Center)
+    ) {
+        Text(
+            text = "Calendar Screen",
+            fontWeight = FontWeight.Bold,
+            color = Color.White,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            textAlign = TextAlign.Center,
+            fontSize = 20.sp
+        )
+    }
+}
+
+@Composable
+fun NutritionScreen() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(colorResource(id = R.color.light_green))
             .wrapContentSize(Alignment.Center)
     ) {
         Text(
             text = "My Nutrition Screen",
+            fontWeight = FontWeight.Bold,
+            color = Color.White,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            textAlign = TextAlign.Center,
+            fontSize = 20.sp
+        )
+    }
+}
+
+@Composable
+fun ProfileScreen() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(colorResource(id = R.color.light_blue))
+            .wrapContentSize(Alignment.Center)
+    ) {
+        Text(
+            text = "Profile Screen",
             fontWeight = FontWeight.Bold,
             color = Color.White,
             modifier = Modifier.align(Alignment.CenterHorizontally),

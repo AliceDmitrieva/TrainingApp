@@ -9,12 +9,24 @@ sealed class BottomNavItem(
     object Trainings : BottomNavItem(
         "Trainings",
         R.drawable.ic_sport,
-        "my_trainings",
+        "trainings",
+    )
+
+    object Calendar : BottomNavItem(
+        "Calendar",
+        R.drawable.ic_calendar,
+        "calendar",
     )
 
     object Nutrition : BottomNavItem(
         "Nutrition",
         R.drawable.ic_food,
-        "my_nutrition",
+        "nutrition",
+    )
+
+    object Profile : BottomNavItem(
+        "Profile",
+        R.drawable.ic_person,
+        "profile",
     )
 }
