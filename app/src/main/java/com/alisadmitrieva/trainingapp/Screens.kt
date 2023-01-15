@@ -61,7 +61,7 @@ fun NutritionScreen() {
             .wrapContentSize(Alignment.Center)
     ) {
         Text(
-            text = "My Nutrition Screen",
+            text = "Nutrition Screen",
             fontWeight = FontWeight.Bold,
             color = Color.White,
             modifier = Modifier.align(Alignment.CenterHorizontally),

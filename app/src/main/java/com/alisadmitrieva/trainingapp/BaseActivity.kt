@@ -57,13 +57,13 @@ class BaseActivity : ComponentActivity() {
             composable(BottomNavItem.Trainings.screen_route) {
                 TrainingsScreen()
             }
-            composable(BottomNavItem.Trainings.screen_route) {
+            composable(BottomNavItem.Calendar.screen_route) {
                 CalendarScreen()
             }
-            composable(BottomNavItem.Trainings.screen_route) {
+            composable(BottomNavItem.Nutrition.screen_route) {
                 NutritionScreen()
             }
-            composable(BottomNavItem.Nutrition.screen_route) {
+            composable(BottomNavItem.Profile.screen_route) {
                 ProfileScreen()
             }
         }
